@@ -1,0 +1,29 @@
+{
+  "name": "orokin-bot",
+  "version": "1.0.0",
+  "description": "This is a bot to handle the Warframe API. This bot will perform various funtions regarding warframe.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyork95/orokin-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "Cody York (CoYoFroYo, cyork95)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyork95/orokin-bot/issues"
+  },
+  "homepage": "https://github.com/cyork95/orokin-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "eslint": "^7.19.0",
+    "snekfetch": "^4.0.4",
+    "unirest": "^0.6.0"
+  }
+}
