@@ -12,10 +12,10 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			if (jsonResponse['isWarm']) {
-				jsonEmbed.addField('Orb Vallis', `It is currently warm until ${jsonResponse['timeLeft']}!`);
+				jsonEmbed.addField(`Orb Vallis Cycle for ${platform}`, `It is currently warm until ${jsonResponse['timeLeft']}!`);
 			}
 			else {
-				jsonEmbed.addField('Orb Vallis', `It is currently cold until ${jsonResponse['timeLeft']}!`);
+				jsonEmbed.addField(`Orb Vallis Cycle for ${platform}`, `It is currently cold until ${jsonResponse['timeLeft']}!`);
 			}
 			message.channel.send(jsonEmbed);
 		});

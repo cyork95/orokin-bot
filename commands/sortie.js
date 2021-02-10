@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Daily Sortie');
+				.setTitle(`Current Daily Sortie for ${platform}`);
 			jsonResponse['variants'].forEach(mission => {
 				if (mission['missionType'] == 'Assassination') {
 					jsonEmbed.addField(`${mission['missionType']} of ${jsonResponse['boss']} on ${mission['node']}`, `Modifier: ${mission['modifierDescription']}`);

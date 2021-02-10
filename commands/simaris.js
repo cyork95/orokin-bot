@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Simaris Target')
+				.setTitle(`Current Simaris Target for ${platform}`)
 				.setDescription(`${jsonResponse['asString']}`);
 			message.channel.send(jsonEmbed);
 		});

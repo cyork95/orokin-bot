@@ -11,7 +11,7 @@ module.exports = {
 		cambionReq.end(function(res) {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
-			jsonEmbed.addField('Cambion Drift', `It is currently ${jsonResponse['active']} until ${jsonResponse['activation'].substring(11, 19)}!`);
+			jsonEmbed.addField(`Cambion Drift Cycle on ${platform}`, `It is currently ${jsonResponse['active']} until ${jsonResponse['activation'].substring(11, 19)}!`);
 			message.channel.send(jsonEmbed);
 		});
 	},

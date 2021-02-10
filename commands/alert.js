@@ -12,7 +12,7 @@ module.exports = {
 			const jsonResponse = res.body;
 			if (jsonResponse == '') {
 				const jsonEmbed = new Discord.MessageEmbed()
-					.setTitle('Alerts Information')
+					.setTitle(`Alerts Information for ${platform}`)
 					.setDescription('There is currently no alert data!');
 				message.channel.send(jsonEmbed);
 			}

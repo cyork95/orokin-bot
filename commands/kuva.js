@@ -12,7 +12,7 @@ module.exports = {
 			const jsonResponse = res.body;
 			if (jsonResponse == '') {
 				const jsonEmbed = new Discord.MessageEmbed()
-					.setTitle('Kuva Information')
+					.setTitle(`Kuva Information for ${platform}`)
 					.setDescription('There is currently no kuva data!');
 				message.channel.send(jsonEmbed);
 			}

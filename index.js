@@ -1,7 +1,9 @@
 // require nodes file system module
 const fs = require('fs');
 const Discord = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { prefix, token, WARFRAME_ANNOUNCEMENTS_CHANNEL, platform } = require('./config.json');
+const cron = require('cron');
+const unirest = require('unirest');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -85,6 +87,59 @@ client.on('message', message => {
 		message.reply('there was an error trying to execute that command!');
 	}
 });
+
+const sendDailySortie = new cron.CronJob('00 30 11 * * *', () => {
+	// This runs every day at 11:30:00,
+	const req = unirest('GET', `https://api.warframestat.us/${platform}/sortie`);
+	req.end(function(res) {
+		if (res.error) throw new Error(res.error);
+		const jsonResponse = res.body;
+		const jsonEmbed = new Discord.MessageEmbed()
+			.setTitle(`Current Daily Sortie for ${platform}`);
+		jsonResponse['variants'].forEach(mission => {
+			if (mission['missionType'] == 'Assassination') {
+				jsonEmbed.addField(`${mission['missionType']} of ${jsonResponse['boss']} on ${mission['node']}`, `Modifier: ${mission['modifierDescription']}`);
+			}
+			else {
+				jsonEmbed.addField(`${mission['missionType']} on ${mission['node']}`, `Modifier: ${mission['modifierDescription']}`);
+			}
+
+		});
+		client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
+	});
+});
+
+const sendDailyDarvo = new cron.CronJob('00 32 12 * * *', () => {
+	// This runs every day at 11:30:00,
+	const req = unirest('GET', `https://api.warframestat.us/${platform}/dailyDeals`);
+	req.end(function(res) {
+		if (res.error) throw new Error(res.error);
+		const jsonResponse = res.body;
+		const jsonEmbed = new Discord.MessageEmbed()
+			.setTitle(`Darvo Daily Deal for ${platform}`)
+			.setDescription(`The Daily Darvo Deal is ${jsonResponse[0]['item']} for ${jsonResponse[0]['salePrice']}plat originally ${jsonResponse[0]['originalPrice']}plat. This deal expires on ${jsonResponse[0]['expiry']}!`);
+		client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
+	});
+});
+
+const sendWeeklyNightwave = new cron.CronJob('30 10 * * MON', () => {
+// This runs every monday at 10:30:00,
+	const req = unirest('GET', `https://api.warframestat.us/${platform}/nightwave`);
+	req.end(function(res) {
+		if (res.error) throw new Error(res.error);
+		const jsonResponse = res.body;
+		const jsonEmbed = new Discord.MessageEmbed()
+			.setTitle(`Current Nightwave Challenges for ${platform}`);
+		jsonResponse['activeChallenges'].forEach(challenge => {
+			jsonEmbed.addField(`${challenge['title']}`, `${challenge['desc']}! This is worth ${challenge['reputation']} nightwave reputation!`);
+		});
+		client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
+	});
+});
+
+sendDailySortie.start();
+sendDailyDarvo.start();
+sendWeeklyNightwave.start();
 
 // login to Discord with your app's token
 client.login(token);

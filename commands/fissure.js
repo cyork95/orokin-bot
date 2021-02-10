@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Fissure Missions');
+				.setTitle(`Current Fissure Missions for ${platform}`);
 			jsonResponse.forEach(fissure => {
 				jsonEmbed.addField(`${fissure['tier']} Relic Mission`, `${fissure['missionType']} on ${fissure['node']} with ${fissure['enemy']} enemies. This expires in ${fissure['eta']}!`);
 			});

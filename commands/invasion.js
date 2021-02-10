@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Invasion Missions');
+				.setTitle(`Current Invasion Missions for ${platform}`);
 			jsonResponse.forEach(invasion => {
 				if (invasion['desc'] == 'Phorid Manifestation' || invasion['desc'] == 'Infested Outbreak') {
 					jsonEmbed.addField(`${invasion['desc']}`, `The ${invasion['attackingFaction']} are attacking the ${invasion['defendingFaction']} on ${invasion['node']}. The ${invasion['defendingFaction']} are offering ${invasion['defenderReward']['itemString']} to get rid of the infestation!`);

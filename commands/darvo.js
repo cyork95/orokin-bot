@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Darvo Daily Deal')
+				.setTitle(`Darvo Daily Deal for ${platform}`)
 				.setDescription(`The Daily Darvo Deal is ${jsonResponse[0]['item']} for ${jsonResponse[0]['salePrice']}plat originally ${jsonResponse[0]['originalPrice']}plat. This deal expires on ${jsonResponse[0]['expiry']}!`);
 			message.channel.send(jsonEmbed);
 		});

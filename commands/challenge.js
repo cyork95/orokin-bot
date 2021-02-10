@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Conclave Challenges');
+				.setTitle(`Conclave Challenges for ${platform}`);
 			jsonResponse.forEach(challenge => {
 				jsonEmbed.addField(`${challenge['title']}`, `${challenge['asString']}`);
 			});

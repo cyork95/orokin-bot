@@ -12,7 +12,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			if (jsonResponse['isDay']) {
-				jsonEmbed.addField('Cetus', `It is currently day time until ${jsonResponse['timeLeft']}! Happy fishing!`);
+				jsonEmbed.addField(`Cetus Cycle on ${platform}`, `It is currently day time until ${jsonResponse['timeLeft']}! Happy fishing!`);
 				message.channel.send(jsonEmbed);
 			}
 			else {

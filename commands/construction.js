@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Construction Progress')
+				.setTitle(`Construction Progress for ${platform}`)
 				.setDescription(`The formorian progress is ${jsonResponse['fomorianProgress']}% and the Razorback progress is ${jsonResponse['razorbackProgress']}%!`);
 			message.channel.send(jsonEmbed);
 		});

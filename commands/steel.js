@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Steel Meridian Syndicate Missions');
+				.setTitle(`Current Steel Meridian Syndicate Missions for ${platform}`);
 			jsonResponse.forEach(mission => {
 				mission['nodes'].forEach(node => {
 					if(mission['syndicate'] == 'Steel Meridian') {

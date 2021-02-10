@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current News');
+				.setTitle(`Current News for ${platform}`);
 			jsonResponse.forEach(news => {
 				jsonEmbed.addField(`${news['message']}`, `${news['asString']}`);
 			});

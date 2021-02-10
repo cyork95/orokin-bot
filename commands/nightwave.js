@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Nightwave Challenges');
+				.setTitle(`Current Nightwave Challenges for ${platform}`);
 			jsonResponse['activeChallenges'].forEach(challenge => {
 				jsonEmbed.addField(`${challenge['title']}`, `${challenge['desc']}! This is worth ${challenge['reputation']} nightwave reputation!`);
 			});

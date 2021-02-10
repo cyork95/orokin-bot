@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Quills Syndicate Missions');
+				.setTitle(`Current Quills Syndicate Missions for ${platform}`);
 			jsonResponse.forEach(mission => {
 				mission['jobs'].forEach(job => {
 					if(mission['syndicate'] == 'Quills') {

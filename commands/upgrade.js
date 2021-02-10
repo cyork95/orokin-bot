@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Current Global Upgrades');
+				.setTitle(`Current Global Upgrades for ${platform}`);
 			jsonResponse.forEach(upgrade => {
 				jsonEmbed.addField(`${upgrade['upgrade']}`, `${upgrade['desc']}!`);
 			});

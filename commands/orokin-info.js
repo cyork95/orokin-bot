@@ -6,7 +6,7 @@ module.exports = {
 	guildOnly: true,
 	execute(message) {
 		const serverInfoEmbed = new Discord.MessageEmbed()
-			.setTitle('RickyBot')
+			.setTitle('OrokinBot')
 			.setDescription('Warframe bot created for CoYo\'s Discord Servers!')
 			.setFooter('Created by CoYoFroYo (2021)');
 		message.channel.send(serverInfoEmbed);

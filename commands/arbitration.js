@@ -11,7 +11,7 @@ module.exports = {
 			if (res.error) throw new Error(res.error);
 			const jsonResponse = res.body;
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle('Arbitration Information')
+				.setTitle(`Arbitration Information for ${platform}`)
 				.setDescription(`The Arbitration is a ${jsonResponse['type']} mission on ${jsonResponse['node']} and expires at ${jsonResponse['expiry']}!`);
 			message.channel.send(jsonEmbed);
 		});
