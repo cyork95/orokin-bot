@@ -7,12 +7,13 @@ module.exports = {
 	ars: true,
 	usage: '<resource>',
 	execute(message, args) {
+		const resource = args.join(' ').toLowerCase();
 		const jsonObject = farmJson;
-		if (`${jsonObject[args[0]]}` != 'undefined') {
+		if (`${jsonObject[resource]}` != undefined) {
 			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle(`Farming Details for ${args[0]}`)
-				.setDescription(`Best place to farm is ${jsonObject[args[0]]['BestLocationName']}`)
-				.addField('Other places to farm are: ', ` ${jsonObject[args[0]]['OtherLocations']}`);
+				.setTitle(`Farming Details for ${resource}`)
+				.setDescription(`Best place to farm is ${jsonObject[resource]['BestLocationName']}`)
+				.addField('Other places to farm are: ', ` ${jsonObject[resource]['OtherLocations']}`);
 			message.channel.send(jsonEmbed);
 		}
 		else {

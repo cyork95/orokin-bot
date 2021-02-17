@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'ostron',
+	aliases: ['cetus'],
 	description: 'Get the current ostron syndicate missions.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/syndicateMissions`);

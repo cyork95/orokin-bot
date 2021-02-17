@@ -3,7 +3,7 @@ const { platform } = require('../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'alert',
+	name: 'alerts',
 	description: 'Get latest alert data.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/alerts`);
@@ -19,9 +19,9 @@ module.exports = {
 			else {
 				const jsonEmbed = new Discord.MessageEmbed()
 					.setTitle('Alerts Information')
-					.setDescription(`Expires on ${'expiry'}`);
+					.setDescription(`Expires on ${jsonResponse.expiry}`);
 				jsonResponse.forEach(mission => {
-					jsonEmbed.addField[`${mission['type']} on ${mission['node']} with the ${mission['faction']} with enemies leveled ${mission['minEnemyLevel']} to ${mission['maxEnemyLevel']}`, `The reward is ${mission['reward']['asString']}`];
+					jsonEmbed.addField[`${mission['type']} on ${mission['node']} with the ${mission['faction']} with enemies leveled ${mission['minEnemyLevel']} to ${mission['maxEnemyLevel']}`, `The reward is ${mission['reward']}`];
 				});
 				message.channel.send(jsonEmbed);
 			}

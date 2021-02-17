@@ -3,7 +3,7 @@ const { platform } = require('../config.json');
 const Discord = require('discord.js');
 
 module.exports = {
-	name: 'quils',
+	name: 'quills',
 	description: 'Get the current Quills syndicate missions.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/syndicateMissions`);

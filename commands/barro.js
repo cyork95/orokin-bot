@@ -22,7 +22,7 @@ module.exports = {
 					.setTitle(`Barro Information for ${platform}`)
 					.setDescription(`${jsonResponse['character']} is at ${jsonResponse['location']}`);
 				jsonResponse['inventory'].forEach(item => {
-					jsonEmbed.setField(item['item'], `Ducat Cost is ${item['ducats']} and Credit Cost is ${item['credits']}`);
+					jsonEmbed.addField(item['item'], `Ducat Cost is ${item['ducats']} and Credit Cost is ${item['credits']}`);
 				});
 				message.channel.send(jsonEmbed);
 			}

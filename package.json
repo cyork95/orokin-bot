@@ -26,6 +26,7 @@
     "discord.js": "^12.5.1",
     "eslint": "^7.19.0",
     "snekfetch": "^4.0.4",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "warframe-items": "^1.1246.4"
   }
 }

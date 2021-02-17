@@ -270,5 +270,12 @@
         "OtherLocations": [
 
         ]
+    },
+    "mutagen samples": {
+        "BestLocationName": "Terrorem (Deimos)",
+        "OtherLocations": [
+            "Hyf (Deimos)",
+            "Cambion Drift (Deimos)"
+        ]
     }
 }

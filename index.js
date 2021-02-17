@@ -31,9 +31,6 @@ client.on('message', message => {
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
-
-	if (!client.commands.has(commandName)) return;
-
 	const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
 	if (!command) return;
@@ -88,7 +85,7 @@ client.on('message', message => {
 	}
 });
 
-const sendDailySortie = new cron.CronJob('00 30 11 * * *', () => {
+const sendDailySortie = new cron.CronJob('00 30 12 * * *', () => {
 	// This runs every day at 11:30:00,
 	const req = unirest('GET', `https://api.warframestat.us/${platform}/sortie`);
 	req.end(function(res) {
@@ -117,7 +114,7 @@ const sendDailyDarvo = new cron.CronJob('00 32 12 * * *', () => {
 		const jsonResponse = res.body;
 		const jsonEmbed = new Discord.MessageEmbed()
 			.setTitle(`Darvo Daily Deal for ${platform}`)
-			.setDescription(`The Daily Darvo Deal is ${jsonResponse[0]['item']} for ${jsonResponse[0]['salePrice']}plat originally ${jsonResponse[0]['originalPrice']}plat. This deal expires on ${jsonResponse[0]['expiry']}!`);
+			.setDescription(`The Daily Darvo Deal is ${jsonResponse[0]['item']} for ${jsonResponse[0]['salePrice']}plat originally ${jsonResponse[0]['originalPrice']}plat!`);
 		client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
 	});
 });
