@@ -85,8 +85,8 @@ client.on('message', message => {
 	}
 });
 
-const sendDailySortie = new cron.CronJob('00 30 12 * * *', () => {
-	// This runs every day at 11:30:00,
+const sendDailySortie = new cron.CronJob('00 30 17 * * *', () => {
+	// This runs every day at 11:30:00est,
 	const req = unirest('GET', `https://api.warframestat.us/${platform}/sortie`);
 	req.end(function(res) {
 		if (res.error) throw new Error(res.error);
@@ -106,8 +106,8 @@ const sendDailySortie = new cron.CronJob('00 30 12 * * *', () => {
 	});
 });
 
-const sendDailyDarvo = new cron.CronJob('00 32 12 * * *', () => {
-	// This runs every day at 11:30:00,
+const sendDailyDarvo = new cron.CronJob('00 30 17 * * *', () => {
+	// This runs every day at 11:30:00est,
 	const req = unirest('GET', `https://api.warframestat.us/${platform}/dailyDeals`);
 	req.end(function(res) {
 		if (res.error) throw new Error(res.error);
@@ -119,8 +119,8 @@ const sendDailyDarvo = new cron.CronJob('00 32 12 * * *', () => {
 	});
 });
 
-const sendWeeklyNightwave = new cron.CronJob('30 10 * * MON', () => {
-// This runs every monday at 10:30:00,
+const sendWeeklyNightwave = new cron.CronJob('30 15 * * MON', () => {
+// This runs every monday at 10:30:00est,
 	const req = unirest('GET', `https://api.warframestat.us/${platform}/nightwave`);
 	req.end(function(res) {
 		if (res.error) throw new Error(res.error);
@@ -134,9 +134,25 @@ const sendWeeklyNightwave = new cron.CronJob('30 10 * * MON', () => {
 	});
 });
 
+const sendWeeklyNews = new cron.CronJob('00 15 * * MON', () => {
+	// This runs every monday at 10:00:00est,
+	const req = unirest('GET', `https://api.warframestat.us/${platform}/news`);
+	req.end(function(res) {
+		if (res.error) throw new Error(res.error);
+		const jsonResponse = res.body;
+		const jsonEmbed = new Discord.MessageEmbed()
+			.setTitle(`Current News for ${platform}`);
+		jsonResponse.forEach(news => {
+			jsonEmbed.addField(`${news['message']}`, `${news['asString']}`);
+		});
+		client.channel.send(jsonEmbed);
+	});
+});
+
 sendDailySortie.start();
 sendDailyDarvo.start();
 sendWeeklyNightwave.start();
+sendWeeklyNews.start();
 
 // login to Discord with your app's token
 client.login(token);
