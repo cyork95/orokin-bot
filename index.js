@@ -145,14 +145,39 @@ const sendWeeklyNews = new cron.CronJob('00 15 * * MON', () => {
 		jsonResponse.forEach(news => {
 			jsonEmbed.addField(`${news['message']}`, `${news['asString']}`);
 		});
-		client.channel.send(jsonEmbed);
+		client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
 	});
+});
+
+const sendWeeklyBarro = new cron.CronJob('00 15 * * FRI', () => {
+	// This runs every friday at 10:00:00est,
+	const req = unirest('GET', `https://api.warframestat.us/${platform}/voidTrader`);
+
+	req.end(function(res) {
+		if (res.error) throw new Error(res.error);
+		const jsonResponse = res.body;
+		if(jsonResponse['inventory'] == '') {
+			const jsonEmbed = new Discord.MessageEmbed()
+				.setTitle(`Barro Information for ${platform}`)
+				.setDescription(`${jsonResponse['character']} will be at ${jsonResponse['location']} in ${jsonResponse['startString']}!`);
+				client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
+		}
+		else {
+			const jsonEmbed = new Discord.MessageEmbed()
+				.setTitle(`Barro Information for ${platform}`)
+				.setDescription(`${jsonResponse['character']} is at ${jsonResponse['location']}`);
+			jsonResponse['inventory'].forEach(item => {
+				jsonEmbed.addField(item['item'], `Ducat Cost is ${item['ducats']} and Credit Cost is ${item['credits']}`);
+			});
+			client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
+		}
 });
 
 sendDailySortie.start();
 sendDailyDarvo.start();
 sendWeeklyNightwave.start();
 sendWeeklyNews.start();
+sendWeeklyBarro.start();
 
 // login to Discord with your app's token
 client.login(token);
