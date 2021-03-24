@@ -10,11 +10,18 @@ module.exports = {
 		const resource = args.join(' ').toLowerCase();
 		const jsonObject = farmJson;
 		if (`${jsonObject[resource]}` != undefined) {
-			const jsonEmbed = new Discord.MessageEmbed()
-				.setTitle(`Farming Details for ${resource}`)
-				.setDescription(`Best place to farm is ${jsonObject[resource]['BestLocationName']}`)
-				.addField('Other places to farm are: ', ` ${jsonObject[resource]['OtherLocations']}`);
-			message.channel.send(jsonEmbed);
+			if (`${jsonObject[resource]['OtherLocations']}` != '') {
+				const jsonEmbed = new Discord.MessageEmbed()
+					.setTitle(`Farming Details for ${resource}`)
+					.setDescription(`Best place to farm is ${jsonObject[resource]['BestLocationName']} Other places to farm are: ${jsonObject[resource]['OtherLocations']}`);
+				message.channel.send(jsonEmbed);
+			}
+			else {
+				const jsonEmbed = new Discord.MessageEmbed()
+					.setTitle(`Farming Details for ${resource}`)
+					.setDescription(`Best place to farm is ${jsonObject[resource]['BestLocationName']}`);
+				message.channel.send(jsonEmbed);
+			}
 		}
 		else {
 			message.channel.send('If this resource exists, ask @CoYoFroYo to add it to the list.');
