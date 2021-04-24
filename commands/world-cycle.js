@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'world-cycle',
-	description: 'List barro\'s inventory.',
+	description: 'List the complete world cycle.',
 	execute(message) {
 		const cetusReq = unirest('GET', `https://api.warframestat.us/${platform}/cetusCycle`);
 		const vallisReq = unirest('GET', `https://api.warframestat.us/${platform}/vallisCycle`);

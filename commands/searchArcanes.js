@@ -3,12 +3,13 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'search-arcane',
+	aliases: ['sar'],
 	description: 'Search for Arcanes!',
 	args: true,
 	usage: '<arcane name>',
 	execute(message, args) {
 		const argsName = args.join(' ').toLowerCase();
-		const arcanes = new Items('Arcanes');
+		const arcanes = new Items({ category: ['Arcanes'] });
 		const searchedArcane = arcanes.find(record => record.name.toLowerCase() === argsName);
 		if (searchedArcane != undefined) {
 			const name = searchedArcane.name;

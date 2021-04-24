@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'orokin-info',
+	aliases: ['oi', 'bot-info'],
 	description: 'Bot Info',
 	guildOnly: true,
 	execute(message) {

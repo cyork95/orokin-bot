@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'arbi',
+	aliases: ['arbitration', 'arby'],
 	description: 'Get latest arbitration data.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/arbitration`);

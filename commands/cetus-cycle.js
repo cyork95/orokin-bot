@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'cetus-cycle',
+	aliases: ['cc'],
 	description: 'Get the current cetus cycle.',
 	execute(message) {
 		const cetusReq = unirest('GET', `https://api.warframestat.us/${platform}/cetusCycle`);

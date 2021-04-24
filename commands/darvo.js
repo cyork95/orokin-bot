@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'darvo',
+	aliases: ['dd'],
 	description: 'Get the daily Darvo deal.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/dailyDeals`);

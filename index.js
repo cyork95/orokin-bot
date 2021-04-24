@@ -160,7 +160,7 @@ const sendWeeklyBarro = new cron.CronJob('00 15 * * FRI', () => {
 			const jsonEmbed = new Discord.MessageEmbed()
 				.setTitle(`Barro Information for ${platform}`)
 				.setDescription(`${jsonResponse['character']} will be at ${jsonResponse['location']} in ${jsonResponse['startString']}!`);
-				client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
+			client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
 		}
 		else {
 			const jsonEmbed = new Discord.MessageEmbed()
@@ -171,6 +171,7 @@ const sendWeeklyBarro = new cron.CronJob('00 15 * * FRI', () => {
 			});
 			client.channels.cache.find(i => i.name === WARFRAME_ANNOUNCEMENTS_CHANNEL).send(jsonEmbed);
 		}
+	});
 });
 
 sendDailySortie.start();

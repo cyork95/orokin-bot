@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'loka',
+	aliases: ['new-loka'],
 	description: 'Get the current New Loka syndicate missions.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/syndicateMissions`);

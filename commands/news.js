@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'news',
+	aliases: ['new'],
 	description: 'Get the current ongoing news.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/news`);

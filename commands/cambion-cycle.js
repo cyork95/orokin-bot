@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'cambion-cycle',
+	aliases: ['cambion', 'camc'],
 	description: 'Get the current cambion cycle.',
 	execute(message) {
 		const cambionReq = unirest('GET', `https://api.warframestat.us/${platform}/cambionCycle`);

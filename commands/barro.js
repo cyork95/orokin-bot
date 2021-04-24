@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'barro',
+	aliases: ['baro'],
 	description: 'List barro\'s inventory.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/voidTrader`);

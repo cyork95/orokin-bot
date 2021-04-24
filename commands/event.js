@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'event',
+	aliases: ['events'],
 	description: 'Get the current ongoing events.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/events`);

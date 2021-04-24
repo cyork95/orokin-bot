@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'nightwave',
+	aliases: ['nw'],
 	description: 'Get the current nightwave challenges.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/nightwave`);

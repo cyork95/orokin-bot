@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'perrin',
+	aliases: ['perrin-sequence'],
 	description: 'Get the current Perrin Sequence syndicate missions.',
 	execute(message) {
 		const req = unirest('GET', `https://api.warframestat.us/${platform}/syndicateMissions`);

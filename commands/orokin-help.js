@@ -1,9 +1,10 @@
 const { prefix } = require('../config.json');
 module.exports = {
 	name: 'orokin-help',
+	aliases: ['commands', 'oh'],
 	description: 'List all of my commands or info about a specific command.',
-	aliases: ['commands'],
-	usage: '[command name]',
+	args: true,
+	usage: '<command name>',
 	cooldown: 5,
 	execute(message, args) {
 		const data = [];

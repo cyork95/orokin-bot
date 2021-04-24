@@ -3,8 +3,9 @@ const farmJson = require('./resources/farming.json');
 
 module.exports = {
 	name: 'farm',
+	aliases: ['f'],
 	description: 'Get the farming details for a particular resource.',
-	ars: true,
+	args: true,
 	usage: '<resource>',
 	execute(message, args) {
 		const resource = args.join(' ').toLowerCase();
