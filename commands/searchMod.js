@@ -22,7 +22,7 @@ module.exports = {
 			const wikiaUrl = searchedMod.wikiaUrl;
 			const dropArray = [];
 			if (searchedMod.drops != undefined) {
-				for (let i = 0; i < searchedMod.drops.length; i++) {
+				for (let i = 0; i < 5; i++) {
 					const dropInfo = `\nRecieve from ${searchedMod.drops[i].location} with a chance of ${searchedMod.drops[i].chance}`;
 					dropArray.push(dropInfo);
 				}
