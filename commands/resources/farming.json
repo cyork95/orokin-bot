@@ -28,6 +28,12 @@
             "Taveuni (Kuva Fortress)"
         ]
     },
+    "neural sensors": {
+        "BestLocationName": "Elara and Sinai (Jupiter)",
+        "OtherLocations": [
+            "Taveuni (Kuva Fortress)"
+        ]
+    },
     "hexenon": {
         "BestLocationName": "Cameria or Sinai (Jupiter)",
         "OtherLocations": [
@@ -86,7 +92,7 @@
         ]
     },
      "mutagen sample": {
-        "BestLocationName": "Orokin Derelict Survival",
+        "BestLocationName": "Deimos Survival",
         "OtherLocations": [
 
         ]
@@ -170,6 +176,12 @@
         ]
     },
     "rubido": {
+        "BestLocationName": "Stickney (Phobos)",
+        "OtherLocations": [
+
+        ]
+    },
+    "rubedo": {
         "BestLocationName": "Stickney (Phobos)",
         "OtherLocations": [
 

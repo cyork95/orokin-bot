@@ -23,8 +23,13 @@ module.exports = {
 			const dropArray = [];
 			if (searchedMod.drops != undefined) {
 				for (let i = 0; i < 5; i++) {
-					const dropInfo = `\nRecieve from ${searchedMod.drops[i].location} with a chance of ${searchedMod.drops[i].chance}`;
-					dropArray.push(dropInfo);
+					if(searchedMod.drops[i] != undefined) {
+						const dropInfo = `\nRecieve from ${searchedMod.drops[i].location} with a chance of ${searchedMod.drops[i].chance}`;
+						dropArray.push(dropInfo);
+					}
+					else{
+						continue;
+					}
 				}
 			}
 			if (searchedMod.drops != undefined) {
