@@ -33,10 +33,104 @@ module.exports = {
 				}
 			}
 			if (searchedMod.drops != undefined) {
+				if (wikiaThumbnail != undefined) {
+					if (wikiaUrl != undefined) {
+						const jsonEmbed = new Discord.MessageEmbed()
+							.setTitle(`Mod Information for ${name}`)
+							.setURL(`${wikiaUrl}`)
+							.setImage(`${wikiaThumbnail}`)
+							.addFields(
+								{ name: 'Polarity', value: `${polarity}`, inline: true },
+								{ name: 'Rarity', value: `${rarity}`, inline: true },
+								{ name: 'Base Cost', value: `${baseDrain}`, inline: true },
+								{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
+								{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
+								{ name: 'For', value: `${type}`, inline: true },
+								{ name: 'Drops', value: `${dropArray}`, inline: false },
+							);
+						message.channel.send(jsonEmbed);
+					}
+					else {
+						const jsonEmbed = new Discord.MessageEmbed()
+							.setTitle(`Mod Information for ${name}`)
+							.setImage(`${wikiaThumbnail}`)
+							.addFields(
+								{ name: 'Polarity', value: `${polarity}`, inline: true },
+								{ name: 'Rarity', value: `${rarity}`, inline: true },
+								{ name: 'Base Cost', value: `${baseDrain}`, inline: true },
+								{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
+								{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
+								{ name: 'For', value: `${type}`, inline: true },
+								{ name: 'Drops', value: `${dropArray}`, inline: false },
+							);
+						message.channel.send(jsonEmbed);
+					}
+				}
+				else if (wikiaUrl != undefined) {
+					const jsonEmbed = new Discord.MessageEmbed()
+						.setTitle(`Mod Information for ${name}`)
+						.setURL(`${wikiaUrl}`)
+						.addFields(
+							{ name: 'Polarity', value: `${polarity}`, inline: true },
+							{ name: 'Rarity', value: `${rarity}`, inline: true },
+							{ name: 'Base Cost', value: `${baseDrain}`, inline: true },
+							{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
+							{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
+							{ name: 'For', value: `${type}`, inline: true },
+							{ name: 'Drops', value: `${dropArray}`, inline: false },
+						);
+					message.channel.send(jsonEmbed);
+				}
+				else {
+					const jsonEmbed = new Discord.MessageEmbed()
+						.setTitle(`Mod Information for ${name}`)
+						.addFields(
+							{ name: 'Polarity', value: `${polarity}`, inline: true },
+							{ name: 'Rarity', value: `${rarity}`, inline: true },
+							{ name: 'Base Cost', value: `${baseDrain}`, inline: true },
+							{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
+							{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
+							{ name: 'For', value: `${type}`, inline: true },
+							{ name: 'Drops', value: `${dropArray}`, inline: false },
+						);
+					message.channel.send(jsonEmbed);
+				}
+			}
+			else if (wikiaThumbnail != undefined) {
+				if (wikiaUrl != undefined) {
+					const jsonEmbed = new Discord.MessageEmbed()
+						.setTitle(`Mod Information for ${name}`)
+						.setURL(`${wikiaUrl}`)
+						.setImage(`${wikiaThumbnail}`)
+						.addFields(
+							{ name: 'Polarity', value: `${polarity}`, inline: true },
+							{ name: 'Rarity', value: `${rarity}`, inline: true },
+							{ name: 'Base Cost', value: `${baseDrain}`, inline: true },
+							{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
+							{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
+							{ name: 'For', value: `${type}`, inline: true },
+						);
+					message.channel.send(jsonEmbed);
+				}
+				else {
+					const jsonEmbed = new Discord.MessageEmbed()
+						.setTitle(`Mod Information for ${name}`)
+						.setImage(`${wikiaThumbnail}`)
+						.addFields(
+							{ name: 'Polarity', value: `${polarity}`, inline: true },
+							{ name: 'Rarity', value: `${rarity}`, inline: true },
+							{ name: 'Base Cost', value: `${baseDrain}`, inline: true },
+							{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
+							{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
+							{ name: 'For', value: `${type}`, inline: true },
+						);
+					message.channel.send(jsonEmbed);
+				}
+			}
+			else if (wikiaUrl != undefined) {
 				const jsonEmbed = new Discord.MessageEmbed()
 					.setTitle(`Mod Information for ${name}`)
 					.setURL(`${wikiaUrl}`)
-					.setImage(`${wikiaThumbnail}`)
 					.addFields(
 						{ name: 'Polarity', value: `${polarity}`, inline: true },
 						{ name: 'Rarity', value: `${rarity}`, inline: true },
@@ -44,15 +138,12 @@ module.exports = {
 						{ name: 'Final Cost', value: `${Number(baseDrain) + Number(fusionLimit)}`, inline: true },
 						{ name: 'Upgrade Total', value: `${fusionLimit} Times`, inline: true },
 						{ name: 'For', value: `${type}`, inline: true },
-						{ name: 'Drops', value: `${dropArray}`, inline: false },
 					);
 				message.channel.send(jsonEmbed);
 			}
 			else {
 				const jsonEmbed = new Discord.MessageEmbed()
 					.setTitle(`Mod Information for ${name}`)
-					.setURL(`${wikiaUrl}`)
-					.setImage(`${wikiaThumbnail}`)
 					.addFields(
 						{ name: 'Polarity', value: `${polarity}`, inline: true },
 						{ name: 'Rarity', value: `${rarity}`, inline: true },
