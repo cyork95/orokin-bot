@@ -290,25 +290,25 @@
             "Cambion Drift (Deimos)"
         ]
     },
-    "calda toroid": {
+    "calda toroids": {
         "BestLocationName": "from enemies around/inside the Enrichment Labs. Has a 20% chance to drop from Scyto Raknoid.Doing all of a Profit Taker Phase 2 bounty but not turning it in will endlessly spawn Corpus dropships. You don't even need to let the beacons hit Alert Level 4 since the drop ships will bring plenty of enemies.",
         "OtherLocations": [
             "found as interactable pick-ups, similar to Ayatan Sculptures, in the many (17) caves throughout Orb Vallis."
         ]
     },
-    "vega toroid": {
+    "vega toroids": {
         "BestLocationName": "from enemies around/inside the Spaceport. Has a 1% chance to drop from Mite Raknoids.A large number of Mite Raknoids will spawn during the first stage of Exploiter Orb  whenever she moves across the battlefield",
         "OtherLocations": [
             "found as interactable pick-ups, similar to Ayatan Sculptures, in the many (17) caves throughout Orb Vallis."
         ]
     },
-    "sola toroid": {
+    "sola toroids": {
         "BestLocationName": "from enemies around/inside the Temple of Profit. Has a 20% chance to drop from Kyta Raknoids. Go inside the target area. Try to get one of the enemies to put down a Reinforcement Beacon. Wait until the beacon hits Alert Level 4. From this point, unlimited enemies will spawn. They will increase in level very quickly, but will eventually hit a level cap that is based on the bounty tier, and stop increasing further.",
         "OtherLocations": [
             "found as interactable pick-ups, similar to Ayatan Sculptures, in the many (17) caves throughout Orb Vallis."
         ]
     },
-    "crisma toroid": {
+    "crisma toroids": {
         "BestLocationName": "the Profit-Taker Orb upon defeat during Phase 4 Heist.",
         "OtherLocations": [
             " "
