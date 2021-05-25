@@ -319,5 +319,18 @@
         "OtherLocations": [
             " "
         ]
+    },
+    "pustulite": {
+        "BestLocationName": "in the Cambion Drift. It is found in Gravid Blastemas",
+        "OtherLocations": [
+            "completing Bounties."
+        ]
+    },
+    "scintillant": {
+        "BestLocationName": "in Isolation Vaults as floating entities that can be picked up. Unlike Cetus Wisps, Scintillant found in this manner do not despawn until collected.",
+        "OtherLocations": [
+            "Reward from Tier 1 from Mother.",
+            "Drops from hostile Necramechs found during Isolation Vault Bounties."
+        ]
     }
 }
