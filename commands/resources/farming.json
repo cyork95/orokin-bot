@@ -244,13 +244,13 @@
     "cubic diodes": {
         "BestLocationName": "Larzac (Europa)",
         "OtherLocations": [
-            
+            "Railjack"
         ]
     },
     "circuits": {
         "BestLocationName": "Gabii (Ceres)",
         "OtherLocations": [
-
+            
         ]
     },
     "kesslers": {
